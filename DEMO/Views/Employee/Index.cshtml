@@ -1,0 +1,66 @@
+﻿@model IEnumerable<DEMO.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <div class="row">
+        <div class="col-lg-10">
+            <h1 style="text-align:center">Index</h1>
+        </div>
+        <div class="col-lg-2">
+            <a asp-action="Create" class="btn btn-outline-success"><i class="fa fa-plus-square mr-2 ">   </i>Employee</a>
+            </div>
+        </div>
+
+        <p>
+
+        </p>
+        <table class="table table-striped" style="border: 2px solid black">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Positon)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OfficeLocation)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Designation)
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Positon)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OfficeLocation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Designation)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.EmployeeId"><i class="fa fa-marker fa-lg"></i></a>
+                            <a asp-action="Details" asp-route-id="@item.EmployeeId" class="text-danger ml-1"><i class="far fa-file-alt fa-lg"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.EmployeeId" class="text-danger ml-1"><i class="far fa-trash-alt fa-lg"></i></a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
