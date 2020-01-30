@@ -14,21 +14,13 @@ namespace DEMO.Models
         [Key]
         public int EmployeeId { get; set; }
         [Column(TypeName = "nvarchar(250)")]
-        [Required]
-        [Display(Name="Name")]
-        
-        public string FullName { get; set; }
-
-        [Column(TypeName = "varchar(10)")]
-        [DisplayName("Emp. Code")]
-        public string EmpCode { get; set; }
-        [Column(TypeName = "varchar(100)")]
-        public string Positon { get; set; }
-        [Column(TypeName = "varchar(100)")]
-        [DisplayName("Office Location")]
-        public string OfficeLocation { get; set; }
-
-        public string Designation { get; set; }
+        public string FirstName { get; set;}
+        public string LastName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string  Email { get; set; }
+        public string  Address { get; set; }
         public ICollection<Salary> Salaries { get; set; }
+        public int DesignationId { get; set; }
+        public Designation Designation { get; set; }
     }
 }

@@ -44,7 +44,6 @@ C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\Microsoft.Extensions.De
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.Views.pdb
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.dll
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.pdb
-C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.csprojAssemblyReference.cache
 C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -147,3 +146,7 @@ C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netco
 C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.csprojAssemblyReference.cache
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Create_des.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Edit_des.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\DesignationView.cshtml.g.cs

@@ -10,12 +10,20 @@ namespace DEMO.Models
     {
         public int EmployeeId { get; set; }
         [Required]
-        [Display(Name = "Name")]
-        public string FullName { get; set; }
-        public string Position { get; set; }
-        public string EmpCode { get; set; }
-        public string Designation { get; set; }
-        public string OfficeLocation { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+        [Required]
+        [Display(Name="Designation")]
+        public int DesignationId { get; set; }
+        [Display(Name="Phone")]
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
         public ICollection<Salary> salaries { get; set; }
+
+
     }
 }

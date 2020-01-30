@@ -1,0 +1,44 @@
+﻿@model DEMO.Models.Designation
+
+@{
+    ViewData["Title"] = "DesignationView";
+}
+
+<h1>DesignationView</h1>
+
+<div>
+    <h4>Designation</h4>
+    <hr />
+    <table class="table table-striped" style="border: 2px solid black">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Id
+                </th>
+                <th scope="col">
+                    Designation
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.designationn)
+            {
+                <tr>
+                    <td>
+                        @item.DesignationId
+                        </td>
+                   
+                
+                
+                    <td>@item.designation</td>
+                  
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <div>
+        @*<a asp-action="Edit" asp-route-id="@Model.DesignationId">Edit</a> |*@
+        <a asp-action="Index">Back to List</a>
+    </div>

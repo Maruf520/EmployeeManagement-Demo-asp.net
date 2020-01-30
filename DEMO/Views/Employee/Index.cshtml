@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DEMO.Models.Employee>
+﻿@model DEMO.Models.Employee
 
 @{
     ViewData["Title"] = "Index";
@@ -19,17 +19,15 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.FullName)
+                        <label asp-for="FirstName"></label>
                     </th>
 
                     <th>
-                        @Html.DisplayNameFor(model => model.Positon)
+                        <label asp-for="LastName"></label>
+                       
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.OfficeLocation)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Designation)
+                        <label asp-for="DesignationId"></label>
                     </th>
                     <th>
                         Action
@@ -38,21 +36,19 @@
             </thead>
 
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in ViewBag.Employee)
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.FullName)
+                            @item.FirstName
+                        </td>
+                        
+                        <td>
+                           @item.LastName
                         </td>
 
                         <td>
-                            @Html.DisplayFor(modelItem => item.Positon)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.OfficeLocation)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Designation)
+                            @item.DesignationId
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.EmployeeId"><i class="fa fa-marker fa-lg"></i></a>
