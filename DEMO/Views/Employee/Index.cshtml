@@ -27,7 +27,7 @@
                        
                     </th>
                     <th>
-                        <label asp-for="DesignationId"></label>
+                        <label asp-for="Designation"></label>
                     </th>
                     <th>
                         Action
@@ -48,7 +48,7 @@
                         </td>
 
                         <td>
-                            @item.DesignationId
+                            @item.Designation.designation
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.EmployeeId"><i class="fa fa-marker fa-lg"></i></a>

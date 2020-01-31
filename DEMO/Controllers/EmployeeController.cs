@@ -21,7 +21,7 @@ namespace DEMO.Controllers
         // GET: Employees
         public async Task<IActionResult> Index()
         {
-            var employee = _context.Employees;
+            var employee = _context.Employees.Include(i =>i.Designation);
             ViewBag.Employee = employee.ToList();
             return View();
         }
@@ -46,6 +46,7 @@ namespace DEMO.Controllers
                 Balance = s.Balance,
                 Date = s.Date.ToString("MMM-yyyy"),
             }).ToList();
+            ViewBag.designationx = _context.Designations.Where(i => i.DesignationId == id);
 
             var result =  new EmployeeModel
             {
@@ -56,6 +57,7 @@ namespace DEMO.Controllers
                 Email = employee.Email,
                 Address = employee.Address,
                 DesignationId = employee.DesignationId ,
+
             };
             return View(result);
         }
@@ -63,6 +65,8 @@ namespace DEMO.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
+            var employee = _context.Employees.Include(i => i.Designation);
+            ViewBag.employeee = employee.ToList();
             return View();
         }
 
@@ -242,6 +246,58 @@ namespace DEMO.Controllers
             var des = _context.Designations;
             ViewBag.designationn = des.ToList();
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult CreateProject()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> CreateProject([Bind("ProjectId,ProjectName")] Project project )
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Add(project);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+        [HttpGet]
+
+        public async Task<IActionResult> EditProject(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var project = _context.Projects.Find(id);
+            return View(project);
+        }
+
+/*        public async Task<IActionResult> Edit_des(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var destinationx = await _context.Designations.FindAsync(id);
+            return View(destinationx);
+
+        }*/
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditProject(int ? id, [Bind("ProjectId,ProjectName")] Project project)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Update(project);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(EditProject));
         }
 
         private bool EmployeeExists(int id)

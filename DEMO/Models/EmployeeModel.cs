@@ -17,7 +17,9 @@ namespace DEMO.Models
         public string LastName { get; set; }
         [Required]
         [Display(Name="Designation")]
+        
         public int DesignationId { get; set; }
+        public string designation { get; set; }
         [Display(Name="Phone")]
         public string PhoneNumber { get; set; }
         public string Email { get; set; }

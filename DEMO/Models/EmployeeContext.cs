@@ -14,6 +14,7 @@ namespace DEMO.Models
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Salary> Salaries { get; set; }
         public DbSet<Designation> Designations { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

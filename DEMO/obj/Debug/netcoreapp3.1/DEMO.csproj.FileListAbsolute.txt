@@ -150,3 +150,5 @@ C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.csprojAssemblyRefe
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Create_des.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Edit_des.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\DesignationView.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\CreateProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\EditProject.cshtml.g.cs
