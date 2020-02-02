@@ -18,7 +18,9 @@ namespace DEMO.Controllers
             _context = context;
         }
 
-        // GET: Employees
+        #region Utilities
+            
+        #endregion
         public async Task<IActionResult> Index()
         {
             var employee = _context.Employees.Include(i =>i.Designation);
@@ -26,7 +28,7 @@ namespace DEMO.Controllers
             return View();
         }
 
-        // GET: Employees/Details/5
+
         public IActionResult Details(int id = 0)
         {
             if (id == 0)
@@ -34,7 +36,7 @@ namespace DEMO.Controllers
                 return NotFound();
             }
 
-            var employee = _context.Employees.Where(a => a.EmployeeId == id).Include(i => i.Salaries).Include(x =>x.Designation).FirstOrDefault();
+            var employee = _context.Employees.Where(a => a.EmployeeId == id).Include(i => i.Salaries).Include(c => c.Designation).FirstOrDefault();
 
             if (employee == null)
             {
@@ -46,7 +48,6 @@ namespace DEMO.Controllers
                 Balance = s.Balance,
                 Date = s.Date.ToString("MMM-yyyy"),
             }).ToList();
-            ViewBag.designationx = _context.Designations.Where(i => i.DesignationId == id);
 
             var result =  new EmployeeModel
             {
@@ -57,25 +58,37 @@ namespace DEMO.Controllers
                 Email = employee.Email,
                 Address = employee.Address,
                 DesignationId = employee.DesignationId ,
+                designation = employee.Designation.designation,
 
             };
             return View(result);
         }
 
-        // GET: Employees/Create
         public IActionResult Create()
         {
-            var employee = _context.Employees.Include(i => i.Designation);
+            var des = new EmployeeModel();
+
+            var designations = _context.Designations;
+
+            foreach (var designation in designations) 
+            {
+                des.DesignationList.Add( new SelectListItem()
+                {
+                    Value = designation.DesignationId.ToString(),
+                    Text = designation.designation
+                });
+
+
+            }
+          
+           var employee = _context.Employees.Include(i => i.Designation);
             ViewBag.employeee = employee.ToList();
-            return View();
+            return View(des);
         }
 
-        // POST: Employees/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstName,LastName,PhoneNumber,Email,Address,DesignationId")] Employee employee)
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,PhoneNumber,Email,Address,DesignationId,designation")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +99,6 @@ namespace DEMO.Controllers
             return View(employee);
         }
 
-        // GET: Employees/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -108,16 +120,22 @@ namespace DEMO.Controllers
                 Email = employee.Email,
                 Address = employee.Address,
                 DesignationId = employee.DesignationId,
-
-
-
             };
+            var designations = _context.Designations;
+
+            foreach (var designation in designations)
+            {
+                result.DesignationList.Add(new SelectListItem()
+                {
+                    Value = designation.DesignationId.ToString(),
+                    Text = designation.designation
+                });
+
+
+            }
             return View(result);
         }
 
-        // POST: Employees/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,PhoneNumber,Email,Address,DesignationId,designation,EmployeeId")] Employee employee)
@@ -153,7 +171,6 @@ namespace DEMO.Controllers
             return View(employee);
         }
 
-        // GET: Employees/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -167,8 +184,6 @@ namespace DEMO.Controllers
             {
                 return NotFound();
             }
-            //ViewBag.delete = employee;
-
             var result = new EmployeeModel
             {
                 EmployeeId = employee.EmployeeId,
@@ -185,7 +200,6 @@ namespace DEMO.Controllers
             return View(result);
         }
 
-        // POST: Employees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -214,7 +228,6 @@ namespace DEMO.Controllers
             }
             return View();
         }
-
 
 
         [HttpGet]
@@ -275,17 +288,6 @@ namespace DEMO.Controllers
             var project = _context.Projects.Find(id);
             return View(project);
         }
-
-/*        public async Task<IActionResult> Edit_des(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var destinationx = await _context.Designations.FindAsync(id);
-            return View(destinationx);
-
-        }*/
 
 
         [HttpPost]
