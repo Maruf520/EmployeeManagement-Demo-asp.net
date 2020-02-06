@@ -19,8 +19,26 @@ namespace DEMO.Controllers
         }
 
         #region Utilities
-            
+
         #endregion
+/*        public static string GetDropdownList()
+        {
+            var des = new EmployeeModel();
+            var designations = _context.Designations;
+
+                        foreach (var designation in designations)
+                        {
+                            des.DesignationList.Add(new SelectListItem()
+                            {
+                                Value = designation.DesignationId.ToString(),
+                                Text = designation.designation
+                        });
+
+
+                        }
+            return des.ToString();
+
+        }*/
         public async Task<IActionResult> Index()
         {
             var employee = _context.Employees.Include(i =>i.Designation);
@@ -47,6 +65,8 @@ namespace DEMO.Controllers
             {
                 Balance = s.Balance,
                 Date = s.Date.ToString("MMM-yyyy"),
+                EmployeeId = s.EmployeeId,
+                SalaryId = s.SalaryId
             }).ToList();
 
             var result =  new EmployeeModel
@@ -301,6 +321,50 @@ namespace DEMO.Controllers
             }
             return RedirectToAction(nameof(EditProject));
         }
+        [HttpGet]
+        public async Task<IActionResult>EditSalary(int ? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var salary = await _context.Salaries
+                .FirstOrDefaultAsync(m => m.EmployeeId == id);
+            return View(salary);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult>EditSalary(int id,[Bind("Balance,Date,EmployeeId,SalaryId")]Salary salary)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Update(salary);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+/*        public async Task<IActionResult>DeleteSalary(int id,Salary salary)
+        {
+           var salaryy =  _context.Salaries.Where(e => e.EmployeeId == id);
+            _context.Salaries.Remove(salaryy);
+            _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Details));
+        }*/
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteSalary(int id)
+        {
+            var x =  _context.Salaries.FirstOrDefault(e=>e.SalaryId == id);
+            _context.Salaries.Remove(x);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+
 
         private bool EmployeeExists(int id)
         {

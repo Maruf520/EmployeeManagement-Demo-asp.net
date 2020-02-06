@@ -152,3 +152,4 @@ C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Ed
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\DesignationView.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\CreateProject.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\EditProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\EditSalary.cshtml.g.cs

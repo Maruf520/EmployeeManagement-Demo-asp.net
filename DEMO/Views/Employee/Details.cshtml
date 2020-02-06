@@ -56,6 +56,7 @@
             <th scope="col">
                 Balance
             </th>
+            <th>Action</th>
 
         </tr>
     </thead>
@@ -65,7 +66,11 @@
             <tr>
                 <td>@salary.Date</td>
                 <td>@salary.Balance</td>
-            </tr>
+                <td>
+                    <a asp-action="EditSalary" asp-route-id="@salary.EmployeeId"><i class="fa fa-marker fa-lg"></i></a>
+                    <a asp-action="DeleteSalary" asp-route-id="@salary.SalaryId" class="text-danger ml-1"><i class="far fa-trash-alt fa-lg"></i></a>
+                </td> 
+           </tr>
         }
 
     </tbody>
