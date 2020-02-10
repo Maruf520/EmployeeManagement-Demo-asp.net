@@ -15,6 +15,7 @@ namespace DEMO.Models
         public DbSet<Salary> Salaries { get; set; }
         public DbSet<Designation> Designations { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<EmployeeProject> EmployeeProjects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +25,18 @@ namespace DEMO.Models
                 .HasForeignKey(p => p.EmployeeId); ;
 
 
+
+
+            modelBuilder.Entity<EmployeeProject>()
+                .HasKey(x => new { x.ProjectId, x.EmployeeId });
+            modelBuilder.Entity<EmployeeProject>()
+                .HasOne(p => p.Employee)
+                .WithMany(e => e.EmployeeProjects)
+                .HasForeignKey(b => b.EmployeeId);
+            modelBuilder.Entity<EmployeeProject>()
+                .HasOne(p => p.Project)
+                .WithMany(x => x.EmployeeProjects)
+                .HasForeignKey(y => y.ProjectId);
 
 
 
@@ -47,7 +60,6 @@ namespace DEMO.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
-
         }
     }
 }

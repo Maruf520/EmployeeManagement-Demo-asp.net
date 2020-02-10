@@ -153,3 +153,17 @@ C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\De
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\CreateProject.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\EditProject.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\EditSalary.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Projects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\AssignProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\AssignedProjects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\Projects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\AssignedProjects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\AssignProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\CreateProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\EditProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\Projects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\AssignedProjects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\AssignProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\CreateProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\EditProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\Project.cshtml.g.cs

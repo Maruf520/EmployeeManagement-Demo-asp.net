@@ -21,24 +21,6 @@ namespace DEMO.Controllers
         #region Utilities
 
         #endregion
-/*        public static string GetDropdownList()
-        {
-            var des = new EmployeeModel();
-            var designations = _context.Designations;
-
-                        foreach (var designation in designations)
-                        {
-                            des.DesignationList.Add(new SelectListItem()
-                            {
-                                Value = designation.DesignationId.ToString(),
-                                Text = designation.designation
-                        });
-
-
-                        }
-            return des.ToString();
-
-        }*/
         public async Task<IActionResult> Index()
         {
             var employee = _context.Employees.Include(i =>i.Designation);
@@ -54,7 +36,7 @@ namespace DEMO.Controllers
                 return NotFound();
             }
 
-            var employee = _context.Employees.Where(a => a.EmployeeId == id).Include(i => i.Salaries).Include(c => c.Designation).FirstOrDefault();
+            var employee = _context.Employees.Where(a => a.EmployeeId == id).Include(i => i.Salaries).Include(x => x.EmployeeProjects).FirstOrDefault();
 
             if (employee == null)
             {
@@ -68,17 +50,26 @@ namespace DEMO.Controllers
                 EmployeeId = s.EmployeeId,
                 SalaryId = s.SalaryId
             }).ToList();
+            ViewBag.project = _context.EmployeeProjects.Where(s => s.EmployeeId == id).Select(s => new EmployeeProjectModel
 
-            var result =  new EmployeeModel
             {
-                EmployeeId  =employee.EmployeeId,
+                LastName = s.Employee.LastName,
+                ProjectName = s.Project.ProjectName,
+            }
+            
+            ) ;
+        //    ViewBag.Project = _context.EmployeeProjects.Where(e => e.EmployeeId == id);
+            var result = new EmployeeModel
+            {
+                EmployeeId = employee.EmployeeId,
                 FirstName = employee.FirstName,
                 LastName = employee.LastName,
                 PhoneNumber = employee.PhoneNumber,
                 Email = employee.Email,
                 Address = employee.Address,
-                DesignationId = employee.DesignationId ,
-                designation = employee.Designation.designation,
+                DesignationId = employee.DesignationId,
+               // designation = employee.Designation.designation,
+                //ProjectName = employee.Project.ProjectName,
 
             };
             return View(result);
@@ -259,8 +250,8 @@ namespace DEMO.Controllers
             }
             var destinationx = await _context.Designations.FindAsync(id);
             return View(destinationx);
-
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit_des([Bind(" DesignationId,designation")] Designation designationx)
@@ -269,7 +260,7 @@ namespace DEMO.Controllers
             {
                 _context.Update(designationx);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(DesignationView));
             }
             return View();
         }
@@ -282,8 +273,24 @@ namespace DEMO.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> DeleteDesignation(int id)
+        {
+            var x = _context.Designations.FirstOrDefault(e => e.DesignationId == id);
+            _context.Designations.Remove(x);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(DesignationView));
+        }
+/*
+        [HttpGet]
         public IActionResult CreateProject()
         {
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> Projects()
+        {
+            var projects = _context.Projects.ToList();
+            ViewBag.project = projects;
             return View();
         }
 
@@ -293,7 +300,7 @@ namespace DEMO.Controllers
             {
                 _context.Add(project);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Projects));
             }
             return View();
         }
@@ -319,8 +326,18 @@ namespace DEMO.Controllers
                 _context.Update(project);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToAction(nameof(EditProject));
+            return RedirectToAction(nameof(Projects));
         }
+
+        [HttpGet]
+        public async Task<IActionResult>DeleteProject(int id)
+        {
+            var project = _context.Projects.FirstOrDefault(i => i.ProjectId == id);
+           _context.Projects.Remove(project);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Projects));
+        }*/
+
         [HttpGet]
         public async Task<IActionResult>EditSalary(int ? id)
         {
@@ -344,18 +361,6 @@ namespace DEMO.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-/*        public async Task<IActionResult>DeleteSalary(int id,Salary salary)
-        {
-           var salaryy =  _context.Salaries.Where(e => e.EmployeeId == id);
-            _context.Salaries.Remove(salaryy);
-            _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Details));
-        }*/
-
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteSalary(int id)
         {
             var x =  _context.Salaries.FirstOrDefault(e=>e.SalaryId == id);
@@ -364,6 +369,70 @@ namespace DEMO.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+/*
+        public async Task<IActionResult> AssignProject()
+        {
+            var projectx = new EmployeeProjectModel();
+
+
+            var projects = _context.Projects;
+            var projectss = _context.Employees;
+
+            foreach (var projectxx in projectss)
+            {
+                projectx.EmpoyeeList.Add(new SelectListItem()
+                {
+                    Value = projectxx.EmployeeId.ToString(),
+                    Text = projectxx.LastName
+                }
+
+                    ); ;
+            }
+
+            foreach (var projx in projects)
+            {
+                projectx.ProjectList.Add(new SelectListItem()
+                {
+                    Value = projx.ProjectId.ToString(),
+                    Text = projx.ProjectName
+                }
+
+
+                  ); ; 
+
+            }
+            return View(projectx);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AssignProject([Bind("ProjectId,EmployeeId")]EmployeeProject employeeProject)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(employeeProject);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> AssignedProjects()
+        {
+            var project = _context.EmployeeProjects;
+            ViewBag.project = project.Select(x => new EmployeeProjectModel
+            {
+                LastName = x.Employee.LastName,
+                ProjectName = x.Project.ProjectName,
+
+            });
+
+
+
+            return View();
+        }
+
+
+*/
 
 
         private bool EmployeeExists(int id)

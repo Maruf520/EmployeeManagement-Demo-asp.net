@@ -59,11 +59,31 @@ namespace DEMO.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ProjectId")
+                        .HasColumnType("int");
+
                     b.HasKey("EmployeeId");
 
                     b.HasIndex("DesignationId");
 
+                    b.HasIndex("ProjectId");
+
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("DEMO.Models.EmployeeProject", b =>
+                {
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProjectId", "EmployeeId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("EmployeeProjects");
                 });
 
             modelBuilder.Entity("DEMO.Models.Project", b =>
@@ -141,6 +161,25 @@ namespace DEMO.Migrations
                     b.HasOne("DEMO.Models.Designation", "Designation")
                         .WithMany()
                         .HasForeignKey("DesignationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DEMO.Models.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId");
+                });
+
+            modelBuilder.Entity("DEMO.Models.EmployeeProject", b =>
+                {
+                    b.HasOne("DEMO.Models.Employee", "Employee")
+                        .WithMany("EmployeeProjects")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DEMO.Models.Project", "Project")
+                        .WithMany("EmployeeProjects")
+                        .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
