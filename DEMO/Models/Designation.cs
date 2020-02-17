@@ -11,6 +11,7 @@ namespace DEMO.Models
         [Key]
         public int DesignationId { get; set; }
         [Display(Name = "Designation")]
+        [Required]
         public string designation { get; set; }
        
     }

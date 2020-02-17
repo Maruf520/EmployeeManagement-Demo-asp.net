@@ -22,5 +22,7 @@ namespace DEMO.Models
         public ICollection<Salary> Salaries { get; set; }
         public int DesignationId { get; set; }
         public Designation Designation { get; set; }
+        public ICollection<EmployeeProject> EmployeeProjects { get; set; }
+        public Project Project { get; set; }
     }
 }

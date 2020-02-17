@@ -11,7 +11,9 @@ namespace DEMO.Models
         [Key]
         public int ProjectId { get; set; }
         [Display(Name="Project Name")]
+        [Required]
         public string ProjectName { get; set; }
+        public ICollection<EmployeeProject> EmployeeProjects { get; set; }
 
     }
 }

@@ -1,0 +1,23 @@
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace DEMO.Models
+{
+    public class AccountDbContext : IdentityDbContext
+    {
+        public AccountDbContext(DbContextOptions<AccountDbContext>
+    options) : base(options)
+    {
+
+    }
+    protected override void OnModelCreating(ModelBuilder modelbuilder)
+    {
+    base.OnModelCreating(modelbuilder);
+    //modelbuilder.Seed();
+    }
+    }
+    }

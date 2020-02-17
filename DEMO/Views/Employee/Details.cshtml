@@ -36,41 +36,70 @@
             <label asp-for="Address" class="form-check-label"></label>
             <input class="form-control" asp-for="Address" disabled>
         </div>
-</div>
+    </div>
     <div class="form-group" style="margin-right: 10px">
         <label class="form-check-label">Designation</label>
-  
+
         <input class="form-control" asp-for="designation" disabled>
-    
+
     </div>
-        </div>
-<div class="text-center">
-    <h3>Salary Details</h3>
 </div>
-<table class="table table-striped" style="border: 2px solid black">
-    <thead>
-        <tr>
-            <th scope="col">
-                Date
-            </th>
-            <th scope="col">
-                Balance
-            </th>
+<div class="text-center">
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var salary in ViewBag.salaries)
-        {
+    <h3>Assigned Projects</h3>
+
+    <table class="table table-striped" style="border: 2px solid black">
+        <thead>
             <tr>
-                <td>@salary.Date</td>
-                <td>@salary.Balance</td>
+
+                <th scope="col">
+                    Project Name
+                </th>
+
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var salary in ViewBag.project)
+            {
+                <tr>
+                    <td>@salary.ProjectName</td>
 
-    </tbody>
-</table>
+                </tr>
+            }
 
+        </tbody>
+    </table>
 
+    <div class="text-center">
+        <h3>Salary Details</h3>
+    </div>
+    <table class="table table-striped" style="border: 2px solid black">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Date
+                </th>
+                <th scope="col">
+                    Balance
+                </th>
+                <th>Action</th>
 
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var salary in ViewBag.salaries)
+            {
+                <tr>
+                    <td>@salary.Date</td>
+                    <td>@salary.Balance</td>
+                    <td>
+                        <a asp-action="EditSalary" asp-route-id="@salary.EmployeeId"><i class="fa fa-marker fa-lg"></i></a>
+                        <a asp-action="DeleteSalary" asp-route-id="@salary.SalaryId" class="text-danger ml-1"><i class="far fa-trash-alt fa-lg"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
 

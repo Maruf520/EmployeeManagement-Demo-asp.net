@@ -145,10 +145,44 @@ C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\runtimes\win-x86\native
 C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.csprojAssemblyReference.cache
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Create_des.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Edit_des.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\DesignationView.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\CreateProject.cshtml.g.cs
 C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\EditProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\EditSalary.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Projects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\AssignProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Employee\AssignedProjects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\Projects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\AssignedProjects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\AssignProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\CreateProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\EditProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project - Copy\Projects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\AssignedProjects.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\AssignProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\CreateProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\EditProject.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Project\Project.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Maruf\Desktop\DEMO\DEMO\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\DEMO.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\View.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\CreateRole.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\ListRole.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\EditRole.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\EditeUserInRole.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\AllUsersRole.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register2.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\AllUser.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\EditUser.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\ManageUserRoles.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\ManageUserClaims.cshtml.g.cs
+C:\Users\Maruf\Desktop\DEMO\DEMO\obj\Debug\netcoreapp3.1\Razor\Views\Administration\AccessDenied.cshtml.g.cs

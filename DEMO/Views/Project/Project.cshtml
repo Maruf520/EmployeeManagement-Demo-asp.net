@@ -1,0 +1,41 @@
+﻿@model DEMO.Models.EmployeeProject
+
+@{
+    ViewData["Title"] = "Project";
+}
+
+<h1>Projects</h1>
+
+<div>
+
+    <hr />
+    <div class="text-center">
+        <h3>Project Details</h3>
+    </div>
+    <table class="table table-striped" style="border: 2px solid black">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Employee
+                </th>
+                <th>Project</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.proj)
+            {
+                <tr>
+
+                    <td>@item.Employee.LastName</td>
+                    
+                    
+                   </tr>
+                       
+            }
+
+        </tbody>
+    </table>
+ 
+</div>

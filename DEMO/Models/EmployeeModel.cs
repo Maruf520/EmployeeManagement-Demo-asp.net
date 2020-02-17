@@ -31,7 +31,8 @@ namespace DEMO.Models
         public string Email { get; set; }
         public string Address { get; set; }
         public int DesingantionId { get; set; }
-        //public string designation { get; set; }
+
+        public string ProjectName { get; set; }
         public ICollection<Salary> salaries { get; set; }
         public List<SelectListItem> DesignationList { get; set; }
 

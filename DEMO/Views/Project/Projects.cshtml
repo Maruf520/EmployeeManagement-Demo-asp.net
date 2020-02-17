@@ -1,0 +1,51 @@
+﻿@model DEMO.Models.Project
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="row">
+    <div class="col-lg-10">
+        <h1 style="text-align:center">Projects</h1>
+    </div>
+    <div class="col-lg-2">
+        <a asp-action="CreateProject" class="btn btn-outline-success"><i class="fa fa-plus-square mr-2 ">   </i>Project</a>
+    </div>
+</div>
+
+<table class="table table-striped" style="border: 2px solid black">
+    <thead>
+        <tr>
+            <th>
+                <label asp-for="ProjectName"></label>
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var des in ViewBag.project)
+        {
+            <tr>
+                <td>
+                    @des.ProjectName
+                </td>
+
+
+                <td>
+                    <a asp-action="EditProject" asp-route-id="@des.ProjectId"><i class="fa fa-marker fa-lg"></i></a>
+
+                    <a asp-action="DeleteProject" asp-route-id="@des.ProjectId" class="text-danger ml-1"><i class="far fa-trash-alt fa-lg"></i></a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index" class="btn btn-info">Back to List</a>
+    <a asp-action="AssignProject" class="btn btn-outline-success"><i class="fa fa-plus-square mr-2 ">   </i>Assign Project</a>
+</div>
+

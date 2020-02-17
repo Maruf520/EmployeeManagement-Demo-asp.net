@@ -4,12 +4,17 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Employee</h4>
+    <div class="row text-center">
+        <div class="col-lg-10">
+            <h4 style="margin-left:90px">Employee</h4>
+        </div>
+        <div class="col-lg-2">
+            <a asp-action="Index" class="btn btn-info" onclick="retrun, confirm ('Are you sure to delete this record')"><i class="fa fa-table mr-1"></i>Back to List</a>
+        </div>
+    </div>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row container-fluid" style="margin-left:160px">
+    <div class="col-md-9">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -28,17 +33,17 @@
             <div class="form-group">
 
                 <label asp-for="designation" class="control-label"></label>
-                
+
                 <select asp-for="DesignationId" asp-items="@Model.DesignationList" class="form-control">
                     <option>--Please select one--</option>
                 </select>
 
 
                 @*    @foreach (var item in ViewBag.employeee)
-        {
-            <option asp-for="DesignationId" value="@item.Designation.DesignationId" class="form-control">@item.Designation.designation</option>
-        }*@
-                
+                    {
+                        <option asp-for="DesignationId" value="@item.Designation.DesignationId" class="form-control">@item.Designation.designation</option>
+                    }*@
+
                 <span asp-validation-for="designation" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -60,9 +65,7 @@
                 <div class="form-group clod-md-6">
                     <input type="submit" value="Create" class="btn btn-primary" style="margin-right:10px" />
                 </div>
-                <div class="form-group clod-md-6">
-                    <a asp-action="Index" class="btn btn-secondary btn-block" onclick="retrun, confirm ('Are you sure to delete this record')"><i class="fa fa-table mr-1"></i>Back to List</a>
-                </div>
+
             </div>
         </form>
     </div>

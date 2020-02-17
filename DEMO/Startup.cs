@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using DEMO.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,10 +36,28 @@ namespace DEMO
             services.AddDbContext<EmployeeContext>(options =>
             
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
-            //rvices.AddDbContext<EmployeeContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<EmployeeContext>();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("DeleteRolePolicy",
+                policy => policy.RequireClaim("Delete Role"));
+
+                options.AddPolicy("EditRolePolicy", policy => policy.RequireAssertion(context => 
+                context.User.IsInRole("Admin") && context.User.HasClaim(claim => claim.Type == "Edit Role" && claim.Value == "true")||
+                context.User.IsInRole("Super Admin")));
+
+                options.AddPolicy("CreateRolePolicy", policy => policy.RequireClaim("Create Role"));
+
+                options.AddPolicy("AccessView", policy => policy.RequireAssertion(context => context.User.IsInRole("Admin") && context.User.HasClaim(claim => claim.Type == "View Access" && claim.Value == "true") ||
+                 context.User.IsInRole("Super Admin")));
+            });
+            services.ConfigureApplicationCookie(options =>
+            options.AccessDeniedPath = new PathString("/Administration/AccessDenied"));
+
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+      
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -52,7 +72,7 @@ namespace DEMO
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
