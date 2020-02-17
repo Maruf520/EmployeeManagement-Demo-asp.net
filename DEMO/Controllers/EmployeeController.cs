@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DEMO.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DEMO.Controllers
 {
+    
     public class EmployeeController : Controller
     {
         private readonly EmployeeContext _context;
@@ -21,10 +23,11 @@ namespace DEMO.Controllers
         #region Utilities
 
         #endregion
+        
         public async Task<IActionResult> Index()
         {
             var employee = _context.Employees.Include(i =>i.Designation);
-            ViewBag.Employee = employee.ToList();
+           ViewBag.Employee = employee.ToList();
             return View();
         }
 

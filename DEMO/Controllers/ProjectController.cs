@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DEMO.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DEMO.Controllers
 {
+    [Authorize]
     public class ProjectController : Controller
     {
         private readonly EmployeeContext _context;
@@ -142,12 +144,13 @@ namespace DEMO.Controllers
 
         public async Task<IActionResult>Project()
         {
-            ViewBag.proj = _context.EmployeeProjects.Select(s => new EmployeeProjectModel
+            ViewBag.proj = _context.EmployeeProjects
+                .Select(s => new EmployeeProjectModel
 
-            {
-                LastName = s.Employee.LastName,
-                ProjectName = s.Project.ProjectName,
-            });
+                 {
+                     LastName = s.Employee.LastName,
+                     ProjectName = s.Project.ProjectName,
+                 });
 
             return View();
         }

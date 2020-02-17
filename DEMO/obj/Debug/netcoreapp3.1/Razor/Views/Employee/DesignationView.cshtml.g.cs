@@ -26,8 +26,22 @@ using DEMO.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Maruf\Desktop\DEMO\DEMO\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Maruf\Desktop\DEMO\DEMO\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e0211ae99ed06cec03bbadd8795d4cc572203c70", @"/Views/Employee/DesignationView.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"018b1a0de0afdc4a0eb24412d3d514bb2a42bfd6", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c14c511a2f35e7ae5390bf003ffdbdf7b2e14f65", @"/Views/_ViewImports.cshtml")]
     public class Views_Employee_DesignationView : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DEMO.Models.Designation>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Create_des", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -71,7 +85,7 @@ using DEMO.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n    <div class=\"row\">\r\n        <div class=\"col-lg-10\">\r\n            <h1 style=\"text-align:center\">Designations</h1>\r\n        </div>\r\n        <div class=\"col-lg-2\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0211ae99ed06cec03bbadd8795d4cc572203c705792", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0211ae99ed06cec03bbadd8795d4cc572203c706151", async() => {
                 WriteLiteral("<i class=\"fa fa-plus-square mr-2 \">   </i>Designation");
             }
             );
@@ -123,7 +137,7 @@ using DEMO.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n                   \r\n                \r\n                \r\n                    <td>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0211ae99ed06cec03bbadd8795d4cc572203c708178", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0211ae99ed06cec03bbadd8795d4cc572203c708537", async() => {
                 WriteLiteral("<i class=\"fa fa-marker fa-lg\"></i>");
             }
             );
@@ -154,7 +168,7 @@ using DEMO.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0211ae99ed06cec03bbadd8795d4cc572203c7010399", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0211ae99ed06cec03bbadd8795d4cc572203c7010758", async() => {
                 WriteLiteral("<i class=\"far fa-trash-alt fa-lg\"></i>");
             }
             );
@@ -194,7 +208,7 @@ using DEMO.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n        </tbody>\r\n    </table>\r\n    <div>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0211ae99ed06cec03bbadd8795d4cc572203c7013032", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0211ae99ed06cec03bbadd8795d4cc572203c7013391", async() => {
                 WriteLiteral("Back to List");
             }
             );
@@ -213,6 +227,8 @@ using DEMO.Models;
             WriteLiteral("\r\n    </div>\r\n");
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public IAuthorizationService authorizationServices { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

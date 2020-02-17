@@ -10,20 +10,13 @@ namespace DEMO.Models
     public class RegistrationViewModel
     {
         [Required]
-        public string Name { get; set; }
-        [Required]
-        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Mobile no not valid")]
-        public string Mobile { get; set; }
-        [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [StringLength(10, MinimumLength = 6)]
-
+        [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Required]
-        [NotMapped]
-        [Compare("Password ")]
+        [Display(Name = "Confirm Password")]
+        [Compare("Password", ErrorMessage = "Password and COnfirm Password do not match")]
         public string ConfirmPassword { get; set; }
 
     }
